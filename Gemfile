@@ -32,6 +32,9 @@ gem 'toastr-rails'
 gem 'omniauth'
 gem 'omniauth-facebook', '~> 3.0.0'
 
+gem 'omniauth-google-oauth2', '~> 0.4.1'
+gem 'omniauth-oauth2', '~> 1.3.1'
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

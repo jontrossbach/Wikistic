@@ -1,0 +1,49 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  school_name: MyString
+  school_address: MyString
+  website: MyString
+  phone_number: MyString
+  age_range: MyString
+  institutional_type: MyString
+  denomination: MyString
+  diploma: false
+  founded: 1
+  summary: MyText
+  mission_statement: MyText
+  admissions: MyString
+  activities: MyText
+  male_sports: MyText
+  female_sports: MyText
+  school_day_hours: MyString
+  extended_hours: MyString
+  financial_aid: MyString
+  setting: MyString
+  boarding: false
+  endowment: 1
+  user_id:
+
+two:
+  school_name: MyString
+  school_address: MyString
+  website: MyString
+  phone_number: MyString
+  age_range: MyString
+  institutional_type: MyString
+  denomination: MyString
+  diploma: false
+  founded: 1
+  summary: MyText
+  mission_statement: MyText
+  admissions: MyString
+  activities: MyText
+  male_sports: MyText
+  female_sports: MyText
+  school_day_hours: MyString
+  extended_hours: MyString
+  financial_aid: MyString
+  setting: MyString
+  boarding: false
+  endowment: 1
+  user_id:

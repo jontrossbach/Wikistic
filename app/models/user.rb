@@ -6,7 +6,8 @@ class User < ActiveRecord::Base
          :confirmable, :omniauthable
 
   validates :fullname, presence: true, length: {maximum: 50}
-  
+  has_many :schools
+
       def self.from_omniauth(auth)
         user = User.where(email: auth.info.email).first
 
@@ -24,19 +25,4 @@ class User < ActiveRecord::Base
           end
         end
       end
-
-  def self.find_for_facebook_auth(auth, signed_in_resource=nil)
-    user = User.where(:provider => auth.provider, :uid => auth.uid).first
-    unless user
-      user = User.create(
-                         provider:auth.provider,
-                         uid:auth.uid,
-                         fullname: auth.info.name,
-                         email:auth.info.email,
-                         password:Devise.friendly_token[0,20]
-                         )
-                    user.save!
-    end
-    user
-  end
 end

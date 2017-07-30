@@ -282,4 +282,7 @@ Devise.setup do |config|
   token_url: 'oauth/access_token'},
   token_params: { parse: :json },
   :strategy_class => OmniAuth::Strategies::Facebook
+
+
+  config.omniauth :google_oauth2, '947648544088-67ltikug2c54e2176mq720ih9m95b4sl.apps.googleusercontent.com', 'lpz3hyl2MMzToZNHnJkLUYqi', scope: 'email', info_fields: 'email,name'
 end

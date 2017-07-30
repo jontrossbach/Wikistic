@@ -11,7 +11,36 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170712035720) do
+ActiveRecord::Schema.define(version: 20170720045829) do
+
+  create_table "schools", force: :cascade do |t|
+    t.string   "school_name"
+    t.string   "school_address"
+    t.string   "website"
+    t.string   "phone_number"
+    t.string   "age_range"
+    t.string   "institutional_type"
+    t.string   "denomination"
+    t.boolean  "diploma"
+    t.integer  "founded"
+    t.text     "summary"
+    t.text     "mission_statement"
+    t.string   "admissions"
+    t.text     "activities"
+    t.text     "male_sports"
+    t.text     "female_sports"
+    t.string   "school_day_hours"
+    t.string   "extended_hours"
+    t.string   "financial_aid"
+    t.string   "setting"
+    t.boolean  "boarding"
+    t.integer  "endowment"
+    t.integer  "user_id"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+  end
+
+  add_index "schools", ["user_id"], name: "index_schools_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

@@ -1,0 +1,159 @@
+<div class="panel panel-default">
+	<div class="panel-heading">
+		Enter information for your school
+	</div>
+	<div class="panel-body">
+		<div class="container">
+
+			<%= form_for @school do |f| %>
+
+				<div class="row">
+					<div class="row">
+						<div class="form-group">
+							<label>School Name</label>
+							<%= f.text_field :school_name, placeholder: "Enter school name", class: "form-control" %>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="form-group">
+							<label>Address</label>
+							<%= f.text_field :school_address, placeholder: "What is the school's address?", class: "form-control" %>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="form-group">
+							<label>Website Link</label>
+							<%= f.text_field :website, placeholder: "Provide a link to the website", class: "form-control" %>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="form-group">
+							<label>Phone</label>
+							<%= f.text_field :phone_number, placeholder: "The school's phone number", class: "form-control" %>
+						</div>
+					</div>
+
+					<div class="col-md-4 select">
+						<div class="form-group">
+							<label>School Type</label>
+							<%= f.select :institutional_type, [["Charter school","Charter school"],
+							 ["Language immersion school","Language immersion school"],["Magnet school","Magnet school"], ["Montessori school","Montessori school"],
+							 ["Parochial school","Parochial school"], ["Private special education school","Private special education school"], ["Reggio Emilia school","Reggio Emilia school"],
+							 ["Religious school","Religious school"], ["Traditional private school","Traditional private school"], ["Traditional public school","Traditional public school"],
+							 ["Virtual or Online school","Virtual or Online school"], ["Waldorf school","Waldorf school"]], id: "school_name", prompt: "Select...", class: "form-control" %>
+						</div>
+					</div>
+
+					<div class="col-md-4 select">
+						<div class="form-group">
+							<label>Denomination</label>
+							<%= f.select :denomination, [["Non-secular", "Non-secular"]], prompt: "Select...", class: "form-control" %>
+						</div>
+					</div>
+
+					<div class="col-md-4 select">
+						<div class="form-group">
+							<label>Setting</label>
+							<%= f.select :setting, [["Rural", "Rural"],["Sub-urban", "Sub-urban"], ["Urban", "Urban"]], prompt: "Select...", class: "form-control" %>
+						</div>
+					</div>
+
+					<div class="col-md-4 select">
+						<div class="form-group">
+							<label>Admissions</label>
+							<%= f.select :admissions, [["Rolling","Rolling"]], prompt: "Select...", class: "form-control" %>
+						</div>
+					</div>
+
+					<div class="col-md-4 select">
+						<div class="form-group">
+							<label>Age range</label>
+							<%= f.select :age_range, [["5-10","5-10"], ["11-13","11-13"], ["14-18","14-18"]], prompt: "Select...", class: "form-control" %>
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-4">
+						<div class="form-group">
+							<label>School day hours</label>
+							<%= f.text_field :school_day_hours, placeholder: "'none', if online/virtual school", class: "form-control" %>
+						</div>
+					</div>
+
+					<div class="col-md-4">
+						<div class="form-group">
+							<label>extended_hours</label>
+							<%= f.text_field :extended_hours, placeholder: "'none' if no extended hours", class: "form-control" %>
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="form-group">
+						<label>Mission Statment</label>
+						<%= f.text_field :mission_statement, placeholder: "The mission statment of the school", class: "form-control" %>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="form-group">
+						<label>Summary</label>
+						<%= f.text_area :summary, rows: 5, placeholder: "Provide a summary statement for the school", class: "form-control" %>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="form-group">
+						<label>Male Sports</label>
+						<%= f.text_field :male_sports, placeholder: "List male sports availible at your school", class: "form-control" %>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="form-group">
+						<label>Female Sports</label>
+						<%= f.text_field :female_sports, placeholder: "List female sports availible at your school", class: "form-control" %>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="form-group">
+						<label>Extracurricular activities</label>
+						<%= f.text_field :activities, placeholder: "List extracurricular activities availible at your school", class: "form-control" %>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-4">
+						<div class="form-group">
+							<%= f.check_box :diploma %> Diploma?
+						</div>
+						<div class="form-group">
+							<%= f.check_box :boarding %> Is this a boarding school?
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-4">
+						<div class="form-group">
+							<label>Endowment</label>
+							<div class="input-group">
+								<div class="input-group-addon">$</div>
+								<%= f.text_field :endowment, placeholder: "eg. $100000", class: "form-control" %>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="actions">
+					<%= f.submit "Save", class: "btn btn-primary" %>
+				</div>
+			<% end %>
+		</div>
+	</div>
+</div>
