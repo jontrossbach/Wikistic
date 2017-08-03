@@ -1,5 +1,6 @@
 class School < ActiveRecord::Base
   belongs_to :user
+  has_many :photos
 
   validates :school_name, presence: true, length: {maximum: 100}
   validates :school_address, presence: true

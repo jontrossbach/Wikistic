@@ -2,11 +2,11 @@ class SchoolsController < ApplicationController
   before_action :set_schools, only: [:show, :edit, :update]
   before_action :authenticate_user!, except: [:show]
   def index
-    @schools = School.all
+    @schools = current_user.schools
   end
 
   def show
-
+    @photos = @school.photos
   end
 
   def new
@@ -16,19 +16,34 @@ class SchoolsController < ApplicationController
   def create
     @school = current_user.schools.build(school_params)
     if @school.save
-      redirect_to @school, notice: "Saved..."
+      if params[:images]
+        params[:images].each do |image|
+          @school.photos.create(image: image)
+        end
+      end
+      @photos = @school.photos
+      redirect_to edit_school_path(@school), notice: "Saved..."
     else
       render :new
     end
   end
 
   def edit
-
+    if current_user.id == @school.user.id
+    @photos = @school.photos
+    else
+      redirect_to root_path, notice: "You don't have permission."
+    end
   end
 
   def update
     if @school.update(school_params)
-      redirect_to @school, notice: "Updated..."
+      if params[:images]
+        params[:images].each do |image|
+          @school.photos.create(image: image)
+        end
+      end
+      redirect_to edit_school_path(@school), notice: "Updated..."
     else
       render :edit
     end
@@ -36,7 +51,7 @@ class SchoolsController < ApplicationController
 
   private
     def set_schools
-      @schools = Schools.find(params[:id])
+      @school = School.find(params[:id])
     end
 
     def school_params
