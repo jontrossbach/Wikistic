@@ -24,6 +24,7 @@ class SchoolsController < ApplicationController
       @photos = @school.photos
       redirect_to edit_school_path(@school), notice: "Saved..."
     else
+      flash[:alert] = "Please provide all information for this school."
       render :new
     end
   end
@@ -45,6 +46,7 @@ class SchoolsController < ApplicationController
       end
       redirect_to edit_school_path(@school), notice: "Updated..."
     else
+      flash[:alert] = "Please provide all information for this school."
       render :edit
     end
   end
