@@ -17,16 +17,16 @@ body {
 }
 
 .navbar-default .navbar-brand {
-  color: #FF5A5F;
+  color: #800080;
   font-size: 2em;
   font-weight: 400;
 }
 
 .btn-primary.btn {
-  border: 1px solid #ff5a5f;
+  border: 1px solid #800080;
   border-radius: 2px;
   font-weight: bold;
-  background-color: #ff5a5f;
+  background-color: #800080;
   color: #fff;
   padding: 10px 25px 10px 25px;
 }
@@ -36,15 +36,15 @@ body {
 }
 
 .btn-primary.btn:hover, .btn-primary.btn:focus {
-  border-color: #ff7e82;
-  border-bottom-color: #fa0008;
-  background-color: #ff7e82;
+  border-color: #800080;
+  border-bottom-color: #800080;
+  background-color: #800080;
   outline:none;
 }
 
 .btn-primary.btn:active {
-  border-color: #e00007;
-  background-color: #e00007;
+  border-color: #9400D3;
+  background-color: #9400D3;
   outline:none;
 }
 

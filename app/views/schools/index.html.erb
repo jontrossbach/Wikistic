@@ -1,7 +1,7 @@
 <div class="row">
 	<div class="col-md-3">
 		<ul class="sidebar-list">
-			<li class="sidebar-item"><%= link_to "Your schools", schools_path, class: "sidebar-link active" %></li>
+			<li class="sidebar-item"><%= link_to "Schools you added", schools_path, class: "sidebar-link active" %></li>
 		</ul>
 	</div>
 	<div class="col-md-9">
@@ -14,7 +14,11 @@
 				<% @schools.each do |school| %>
 					<div class="row">
 						<div class="col-md-2">
-							<%= image_tag school.photos[0].image.url(:thumb) if school.photos.length > 0 %>
+							<% if school.photos.count > 0 %>
+								<%= image_tag school.photos[0].image.url(:thumb) %>
+							<% else %>
+								<%= image_tag ("default_school.png"), class: "img-responsive" %>
+							<% end %>
 						</div>
 						<div class="col-md-7">
 							<h4><%= school.school_name %></h4>
@@ -25,7 +29,6 @@
 					</div>
 					<hr>
 				<% end %>
-
 			</div>
 		</div>
 	</div>

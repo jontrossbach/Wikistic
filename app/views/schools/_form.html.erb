@@ -50,7 +50,7 @@
 					<div class="col-md-4 select">
 						<div class="form-group">
 							<label>Denomination</label>
-							<%= f.select :denomination, [["Non-secular", "Non-secular"]], prompt: "Select...", class: "form-control" %>
+							<%= f.select :denomination, [["Non-religious", "Non-religious"], ["Denominational", "Denominational"]], prompt: "Select...", class: "form-control" %>
 						</div>
 					</div>
 
@@ -64,7 +64,7 @@
 					<div class="col-md-4 select">
 						<div class="form-group">
 							<label>Admissions</label>
-							<%= f.select :admissions, [["Rolling","Rolling"]], prompt: "Select...", class: "form-control" %>
+							<%= f.select :admissions, [["Rolling","Rolling"], ["Limited","Limited"]], prompt: "Select...", class: "form-control" %>
 						</div>
 					</div>
 

@@ -38,6 +38,8 @@ gem 'omniauth-oauth2', '~> 1.3.1'
 gem 'paperclip'
 gem 'geocoder'
 
+gem 'ransack'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

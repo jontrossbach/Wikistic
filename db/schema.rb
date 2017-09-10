@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170816133608) do
+ActiveRecord::Schema.define(version: 20170910201309) do
 
   create_table "photos", force: :cascade do |t|
     t.integer  "school_id"
@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(version: 20170816133608) do
     t.datetime "updated_at",         null: false
     t.float    "latitude"
     t.float    "longitude"
+    t.boolean  "active"
   end
 
   add_index "schools", ["user_id"], name: "index_schools_on_user_id"

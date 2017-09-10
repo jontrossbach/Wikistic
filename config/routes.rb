@@ -11,4 +11,7 @@ Rails.application.routes.draw do
   resources :users, only: [:show]
   resources :schools
   resources :photos
+
+
+  get '/search' => 'pages#search'
 end
