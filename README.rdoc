@@ -7,14 +7,20 @@
 * Services:
   Search: ransack gem
   
-* Completed features: 
-searching database for schooling options based on location and additional filters such as institutional type, financial aid,        etc. 
-login 
-adding a new school
-displaying the school profile
+=====Completed features
 
-* Work in progress:
-Messaging
-Feature for users to add reviews for schools
+* Searching database for schooling options based on location and additional filters such as institutional type, financial aid, etc. 
+
+* Login 
+
+* Adding a new school
+
+* Displaying the school profile
+
+=====Work in progress
+
+* Messaging
+
+* Allowing users to write reviews for schools
 
 https://user-images.githubusercontent.com/16040414/30254331-d04b1892-9664-11e7-9ac3-84fd9582ea20.png
