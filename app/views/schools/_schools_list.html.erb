@@ -1,0 +1,18 @@
+<% schools.each do |school| %>
+
+  <div class="col-md-6">
+    <div class="panel panel-default">
+      <div class="panel-heading preview">
+        <% if school.photos.count > 0 %>
+          <%= image_tag school.photos[0].image.url(:medium) %>
+        <% else %>
+          <%= image_tag ("default_school.png"), class: "img-responsive" %>
+        <% end %>
+      </div>
+      <div class="panel-body">
+        <%= link_to school.school_name, school %>
+      </div>
+    </div>
+  </div>
+
+<% end %>

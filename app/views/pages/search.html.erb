@@ -1,16 +1,18 @@
-<div id="wrapper">
+<div id="main">
+  <div id="left">
+    <!-- SEARCH PANEL -->
+    <div class="row">
+      <div class="col-md-offset-4 col-md-4">
+        <button id="filter" class="btn btn-default" data-toggle="collapse" data-target="#collapsePanel">
+          More filters <i class="fa fa-chevron-down"></i>
+        </button>
+      </div>
+    </div>
 
-  <!-- Google Map -->
-	<div id="sidebar">
-		<div id="widget" class="sticky">
-
-		</div>
-	</div>
-
-	<div id="article">
-
-		<div class="row">
-			<%= search_form_for @search, url: search_path do |f| %>
+    <div class="row">
+      <br/>
+      <div class="collapse" id="collapsePanel">
+			<%= search_form_for @search, url: search_path, remote: true do |f| %>
 
       <div class="row">
         <div class="col-md-4">
@@ -45,35 +47,75 @@
 				</div>
 
         <br>
-
-				<div class="row">
+				</div>
+				<div class="row text-center">
 					<%= f.submit "Search", class: "btn btn-primary" %>
 				</div>
 
 			<% end %>
-      <hr>
-      <div class="row">
-				<% @arrSchools.each do |school| %>
 
-					<div class="col-md-4">
-						<div class="panel panel-default">
-							<div class="panel-heading preview">
-                <% if school.photos.count > 0 %>
-  								<%= image_tag school.photos[0].image.url(:medium) %>
-  							<% else %>
-  								<%= image_tag ("default_school.png"), class: "img-responsive" %>
-  							<% end %>
-							</div>
-							<div class="panel-body">
-								<%= link_to school.school_name, school %>
-							</div>
-						</div>
-					</div>
 
-				<% end %>
+      <br>
+      <div class="row" id="school_profile">
+				<%= render partial: "schools/schools_list", locals: {schools: @arrSchools} %>
 			</div>
+
+
 		</div>
 
 	</div>
+	<div id="right">
+    <!-- GOOGLE MAP WILL BE HERE -->
 
+		<div id="map" style="width: 100%; height: 100%"></div>
+
+    <script src="https://maps.googleapis.com/maps/api/js"></script>
+    <script>
+        function initialize(schools) {
+          //var location = {lat: 44.5403, lng: -78.5463}
+
+
+          var location = {lat: schools[0].latitude, lng: schools[0].longitude}
+
+
+          var map = new google.maps.Map(document.getElementById('map'), {
+            center: location,
+            zoom: 12
+          });
+
+          var marker, inforwindow;
+
+          schools.forEach(function(school) {
+            marker = new google.maps.Marker({
+              position: {lat: school.latitude, lng: school.longitude},
+              map: map
+            });
+
+            inforwindow = new google.maps.InfoWindow({
+              content: "<div class='map_price'>" + school.school_name + "</div>"
+            });
+
+            inforwindow.open(map, marker);
+          })
+        }
+
+        google.maps.event.addDomListener(window, 'load', function() {
+          initialize(<%= raw @arrSchools.to_json %>)
+        });
+    </script>
+  </div>
 </div>
+
+<script>
+
+  var open = true;
+
+  $('#filter').click(function() {
+    if (open) {
+      $('#filter').html("More filters <i class='fa fa-chevron-up'></i>")
+    } else {
+      $('#filter').html("More filters <i class='fa fa-chevron-down'></i>")
+    }
+    open = !open;
+  });
+</script>
