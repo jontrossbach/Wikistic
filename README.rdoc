@@ -6,12 +6,12 @@
 
 * Services:
   Search: ransack gem
-  
+
 =====Completed features
 
-* Searching database for schooling options based on location and additional filters such as institutional type, financial aid, etc. 
+* Searching database for schooling options based on location and additional filters such as institutional type, financial aid, etc.
 
-* Login 
+* Login
 
 * Adding a new school
 
@@ -23,6 +23,7 @@
 
 * Allowing users to write reviews for schools
 
+* Create Statewide database for private eduction programs
+
 https://user-images.githubusercontent.com/16040414/30254331-d04b1892-9664-11e7-9ac3-84fd9582ea20.png
 =======
-
