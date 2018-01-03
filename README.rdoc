@@ -6,6 +6,7 @@
 
 * Services:
   Search: ransack gem
+  Mail Service: mailgun
 
 =====Completed features
 
